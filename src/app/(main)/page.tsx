@@ -5,6 +5,7 @@ import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
 import Resume from "@/components/sections/Resume";
 import Projects from "@/components/sections/Projects";
+import Widgets from "@/components/sections/Widgets";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       <About />
       <Resume />
       <Projects />
+      <Widgets />
     </Column>
   );
 }
