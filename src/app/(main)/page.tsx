@@ -2,6 +2,7 @@ import { Column } from "@once-ui-system/core";
 import { Schema } from "@once-ui-system/core";
 import { baseURL, meta } from "@/resources/seo";
 import Hero from "@/components/sections/Hero";
+import About from "@/components/sections/About";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
         path={meta.home.path}
       />
       <Hero />
+      <About />
     </Column>
   );
 }
