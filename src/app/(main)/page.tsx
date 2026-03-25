@@ -6,6 +6,7 @@ import About from "@/components/sections/About";
 import Resume from "@/components/sections/Resume";
 import Projects from "@/components/sections/Projects";
 import Widgets from "@/components/sections/Widgets";
+import Contact from "@/components/sections/Contact";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
       <Resume />
       <Projects />
       <Widgets />
+      <Contact />
     </Column>
   );
 }
