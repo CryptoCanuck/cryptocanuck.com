@@ -32,7 +32,7 @@ export function Header() {
         maxWidth="l"
         paddingX="l"
         paddingY="8"
-        horizontal="space-between"
+        horizontal="between"
         vertical="center"
       >
         <SmartLink href="/" unstyled>

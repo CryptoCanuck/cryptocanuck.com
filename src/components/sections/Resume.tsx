@@ -50,7 +50,7 @@ export default function Resume() {
       id="resume"
       fillWidth
       padding="xl"
-      paddingY="2xl"
+      paddingY="104"
       horizontal="center"
     >
       <Column maxWidth="l" gap="xl" fillWidth>
