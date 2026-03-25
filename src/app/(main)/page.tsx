@@ -3,6 +3,7 @@ import { Schema } from "@once-ui-system/core";
 import { baseURL, meta } from "@/resources/seo";
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
+import Resume from "@/components/sections/Resume";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       />
       <Hero />
       <About />
+      <Resume />
     </Column>
   );
 }
