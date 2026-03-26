@@ -1,47 +1,86 @@
 "use client";
 
-import { Column, Flex, Heading, Text } from "@once-ui-system/core";
+import {
+  Column,
+  Flex,
+  Heading,
+  Text,
+  Tag,
+  Chip,
+  Timeline,
+  RevealFx,
+} from "@once-ui-system/core";
 
-const experience = [
+const experienceItems = [
   {
-    role: "Senior Frontend Developer",
-    company: "Maple Digital Inc.",
-    dates: "2022 — Present",
-    description:
-      "Leading the development of performant web applications using Next.js and React. Architecting component libraries and design systems for cross-team adoption.",
+    label: "Distributed Systems Engineer",
+    description: "Cloud Metric Inc. — 2022 – Present",
+    state: "active" as const,
+    children: (
+      <Text variant="body-default-m" onBackground="neutral-weak">
+        Designing and building resilient distributed systems powering cloud
+        infrastructure. Leading development of microservices with Go and Rust,
+        orchestrated via Kubernetes. Implementing event-driven architectures
+        with gRPC and message streaming for high-throughput data pipelines.
+      </Text>
+    ),
   },
   {
-    role: "Full-Stack Developer",
-    company: "Northern Byte Labs",
-    dates: "2019 — 2022",
-    description:
-      "Built and maintained full-stack applications with TypeScript, Node.js, and PostgreSQL. Delivered client-facing dashboards and internal tooling.",
+    label: "Backend Engineer",
+    description: "Northern Systems Ltd. — 2019 – 2022",
+    state: "default" as const,
+    children: (
+      <Text variant="body-default-m" onBackground="neutral-weak">
+        Built and maintained backend services with Go and TypeScript.
+        Designed PostgreSQL schemas and Redis caching layers for
+        performance-critical applications. Managed CI/CD pipelines and
+        containerized deployments with Docker.
+      </Text>
+    ),
   },
   {
-    role: "Junior Developer",
-    company: "Canuck Software Co.",
-    dates: "2017 — 2019",
-    description:
-      "Contributed to frontend features, wrote unit tests, and participated in code reviews. Gained foundational experience with React and REST APIs.",
+    label: "Junior Software Developer",
+    description: "Canuck Software Co. — 2017 – 2019",
+    state: "default" as const,
+    children: (
+      <Text variant="body-default-m" onBackground="neutral-weak">
+        Contributed to full-stack features using TypeScript and Node.js.
+        Gained foundational experience with REST APIs, database design,
+        and agile development workflows.
+      </Text>
+    ),
   },
 ];
 
-const skills = [
-  "TypeScript",
-  "React",
-  "Next.js",
-  "Node.js",
-  "Solidity",
-  "Tailwind CSS",
-  "PostgreSQL",
-  "GraphQL",
+const educationItems = [
+  {
+    label: "Queen's University",
+    description: "Bachelor of Computing — Kingston, Ontario",
+    state: "success" as const,
+    children: (
+      <Text variant="body-default-m" onBackground="neutral-weak">
+        Focused on computer science fundamentals, systems programming, and
+        distributed computing. Developed a strong foundation in algorithms,
+        data structures, and software engineering principles.
+      </Text>
+    ),
+  },
+];
+
+const languages = ["Go", "Rust", "TypeScript"];
+const infrastructure = [
+  "Kubernetes",
   "Docker",
-  "Git",
+  "AWS",
+  "Terraform",
   "CI/CD",
-  "Web3.js",
-  "REST APIs",
-  "Figma",
-  "Agile",
+];
+const systems = [
+  "gRPC",
+  "PostgreSQL",
+  "Redis",
+  "Microservices",
+  "Event-Driven Architecture",
 ];
 
 export default function Resume() {
@@ -54,73 +93,102 @@ export default function Resume() {
       horizontal="center"
     >
       <Column maxWidth="l" gap="xl" fillWidth>
-        <Text
-          variant="label-default-s"
-          onBackground="neutral-weak"
-          style={{
-            textTransform: "uppercase",
-            letterSpacing: "0.15em",
-            opacity: 0.6,
-          }}
-        >
-          Resume
-        </Text>
+        <RevealFx translateY={8} speed="fast">
+          <Text
+            variant="label-default-s"
+            onBackground="neutral-weak"
+            style={{
+              textTransform: "uppercase",
+              letterSpacing: "0.15em",
+              opacity: 0.6,
+            }}
+          >
+            Resume
+          </Text>
+        </RevealFx>
 
         <Flex fillWidth gap="xl" wrap>
-          {/* Experience */}
-          <Column gap="l" style={{ flex: 2, minWidth: 280 }}>
-            <Heading variant="heading-strong-l">Experience</Heading>
+          {/* Experience & Education */}
+          <RevealFx
+            translateY={16}
+            speed="medium"
+            delay={0.1}
+            style={{ flex: 2, minWidth: 280 }}
+          >
             <Column gap="l">
-              {experience.map((item) => (
-                <Column
-                  key={item.role + item.company}
-                  gap="xs"
-                  style={{
-                    borderLeft: "2px solid var(--brand-solid-strong)",
-                    paddingLeft: "var(--spacing-m)",
-                  }}
-                >
-                  <Heading variant="heading-strong-s">{item.role}</Heading>
-                  <Flex gap="s" vertical="center">
-                    <Text variant="body-default-s" onBackground="neutral-weak">
-                      {item.company}
-                    </Text>
-                    <Text
-                      variant="label-default-xs"
-                      onBackground="neutral-weak"
-                      style={{ opacity: 0.5 }}
-                    >
-                      {item.dates}
-                    </Text>
-                  </Flex>
-                  <Text variant="body-default-m" onBackground="neutral-weak">
-                    {item.description}
-                  </Text>
-                </Column>
-              ))}
+              <Heading variant="heading-strong-l">Experience</Heading>
+              <Timeline items={experienceItems} size="m" />
+
+              <Heading variant="heading-strong-l" marginTop="l">
+                Education
+              </Heading>
+              <Timeline items={educationItems} size="m" />
             </Column>
-          </Column>
+          </RevealFx>
 
           {/* Skills */}
-          <Column gap="l" style={{ flex: 1, minWidth: 200 }}>
-            <Heading variant="heading-strong-l">Skills</Heading>
-            <Flex gap="s" wrap>
-              {skills.map((skill) => (
+          <RevealFx
+            translateY={16}
+            speed="medium"
+            delay={0.2}
+            style={{ flex: 1, minWidth: 200 }}
+          >
+            <Column gap="l">
+              <Heading variant="heading-strong-l">Skills</Heading>
+
+              <Column gap="m">
                 <Text
-                  key={skill}
                   variant="label-default-s"
-                  style={{
-                    padding: "var(--spacing-xs) var(--spacing-m)",
-                    borderRadius: "var(--radius-full)",
-                    background: "var(--brand-background-weak)",
-                    whiteSpace: "nowrap",
-                  }}
+                  onBackground="neutral-weak"
                 >
-                  {skill}
+                  Languages
                 </Text>
-              ))}
-            </Flex>
-          </Column>
+                <Flex gap="8" wrap>
+                  {languages.map((skill) => (
+                    <Tag
+                      key={skill}
+                      variant="brand"
+                      size="m"
+                      label={skill}
+                    />
+                  ))}
+                </Flex>
+              </Column>
+
+              <Column gap="m">
+                <Text
+                  variant="label-default-s"
+                  onBackground="neutral-weak"
+                >
+                  Infrastructure
+                </Text>
+                <Flex gap="8" wrap>
+                  {infrastructure.map((skill) => (
+                    <Tag
+                      key={skill}
+                      variant="neutral"
+                      size="m"
+                      label={skill}
+                    />
+                  ))}
+                </Flex>
+              </Column>
+
+              <Column gap="m">
+                <Text
+                  variant="label-default-s"
+                  onBackground="neutral-weak"
+                >
+                  Systems & Patterns
+                </Text>
+                <Flex gap="8" wrap>
+                  {systems.map((skill) => (
+                    <Chip key={skill} label={skill} />
+                  ))}
+                </Flex>
+              </Column>
+            </Column>
+          </RevealFx>
         </Flex>
       </Column>
     </Column>

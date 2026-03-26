@@ -1,11 +1,19 @@
 "use client";
 
-import { Column, Heading, Text } from "@once-ui-system/core";
+import {
+  Column,
+  Heading,
+  Text,
+  Card,
+  Icon,
+  GlitchFx,
+  RevealFx,
+} from "@once-ui-system/core";
 
 const widgets = [
-  { name: "Anthropic Token Tracker" },
-  { name: "Widget Slot" },
-  { name: "Widget Slot" },
+  { name: "Anthropic Token Tracker", icon: "chart" as const },
+  { name: "System Monitor", icon: "server" as const },
+  { name: "Deploy Pipeline", icon: "rocket" as const },
 ];
 
 export default function Widgets() {
@@ -18,17 +26,19 @@ export default function Widgets() {
       horizontal="center"
     >
       <Column maxWidth="l" gap="xl" fillWidth>
-        <Text
-          variant="label-default-s"
-          onBackground="neutral-weak"
-          style={{
-            textTransform: "uppercase",
-            letterSpacing: "0.15em",
-            opacity: 0.6,
-          }}
-        >
-          Widgets
-        </Text>
+        <RevealFx translateY={8} speed="fast">
+          <Text
+            variant="label-default-s"
+            onBackground="neutral-weak"
+            style={{
+              textTransform: "uppercase",
+              letterSpacing: "0.15em",
+              opacity: 0.6,
+            }}
+          >
+            Widgets
+          </Text>
+        </RevealFx>
 
         <div
           style={{
@@ -39,28 +49,42 @@ export default function Widgets() {
           }}
         >
           {widgets.map((widget, index) => (
-            <Column
+            <RevealFx
               key={`${widget.name}-${index}`}
-              gap="m"
-              horizontal="center"
-              vertical="center"
-              style={{
-                padding: "var(--spacing-xl)",
-                borderRadius: "var(--radius-l)",
-                border: "1px dashed var(--neutral-border-medium)",
-                background: "var(--neutral-background-weak)",
-                minHeight: "180px",
-              }}
+              translateY={16}
+              speed="medium"
+              delay={0.1 * (index + 1)}
             >
-              <Heading variant="heading-strong-s">{widget.name}</Heading>
-              <Text
-                variant="label-default-xs"
-                onBackground="neutral-weak"
-                style={{ opacity: 0.5 }}
+              <Card
+                padding="xl"
+                gap="m"
+                direction="column"
+                horizontal="center"
+                vertical="center"
+                style={{
+                  border: "1px dashed var(--neutral-border-medium)",
+                  minHeight: "180px",
+                }}
               >
-                Coming Soon
-              </Text>
-            </Column>
+                <Icon
+                  name={widget.icon}
+                  size="l"
+                  onBackground="neutral-weak"
+                />
+                <Heading variant="heading-strong-s">
+                  {widget.name}
+                </Heading>
+                <GlitchFx trigger="hover" speed="slow">
+                  <Text
+                    variant="label-default-xs"
+                    onBackground="neutral-weak"
+                    style={{ opacity: 0.5 }}
+                  >
+                    Coming Soon
+                  </Text>
+                </GlitchFx>
+              </Card>
+            </RevealFx>
           ))}
         </div>
       </Column>

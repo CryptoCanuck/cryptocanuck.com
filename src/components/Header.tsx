@@ -1,6 +1,6 @@
 "use client";
 
-import { Flex, Text, SmartLink } from "@once-ui-system/core";
+import { Flex, Text, SmartLink, ThemeSwitcher } from "@once-ui-system/core";
 
 const navLinks = [
   { label: "About", href: "#about" },
@@ -39,20 +39,30 @@ export function Header() {
           <Text variant="heading-strong-s">cryptocanuck</Text>
         </SmartLink>
 
-        <Flex as="ul" gap="4" vertical="center" style={{ listStyle: "none", margin: 0, padding: 0 }}>
+        <Flex
+          as="ul"
+          gap="4"
+          vertical="center"
+          style={{ listStyle: "none", margin: 0, padding: 0 }}
+        >
           {navLinks.map((link) => (
             <li key={link.href}>
               <SmartLink href={link.href} unstyled>
                 <Text
                   variant="label-default-s"
                   onBackground="neutral-weak"
-                  style={{ padding: "var(--static-space-8) var(--static-space-12)" }}
+                  style={{
+                    padding: "var(--static-space-8) var(--static-space-12)",
+                  }}
                 >
                   {link.label}
                 </Text>
               </SmartLink>
             </li>
           ))}
+          <li>
+            <ThemeSwitcher />
+          </li>
         </Flex>
       </Flex>
     </Flex>
