@@ -76,6 +76,18 @@ cryptocanuck.com/
 - `yarn build` - Create production build
 - `yarn start` - Start production server
 
+## 🤝 Development Workflow
+
+Changes are developed on short-lived branches and reviewed through pull requests:
+
+1. Create a feature branch from `main`.
+2. Make a focused change and validate it locally.
+3. Commit the update with a descriptive message.
+4. Push the branch and open a draft pull request.
+5. Merge after the relevant checks and review are complete.
+
+Run `yarn build` before requesting review to confirm the production build succeeds.
+
 ## 🌐 Deployment
 
 The site is optimized for deployment on Vercel:
