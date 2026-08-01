@@ -1,115 +1,53 @@
-# CryptoCanuck - EDM Producer & Electronic Music Artist
+# cryptocanuck.com
 
-Official website for CryptoCanuck, featuring progressive house, melodic techno, and future bass music.
+The CryptoCanuck technical portfolio: AI infrastructure, edge compute,
+industrial data systems, and open-source engineering work.
 
-## 🎵 Features
+The current design is an **Edge Control Room**—a dark, systems-oriented visual
+language built around operational diagrams, high-contrast typography, and
+small amounts of purposeful motion. It uses the architecture of Vercel's
+[SEO Next.js Starter](https://vercel.com/templates/next.js/seo-starter) as its
+foundation, with a completely original interface and content system.
 
-- **Music Showcase** - Latest releases and discography
-- **Live Shows** - Upcoming tour dates and past performances
-- **About** - Artist biography and journey
-- **Contact & Press Kit** - Booking information and media assets
-- **Responsive Design** - Optimized for all devices
-- **Dark Theme** - Immersive dark mode with pink→purple→indigo gradients
+## Stack
 
-## 🛠️ Tech Stack
+- Next.js 15 with the App Router
+- React 19 and TypeScript
+- Tailwind CSS 4 tooling with a custom global visual system
+- Next.js metadata, robots, sitemap, favicon, and Open Graph routes
 
-- **Framework**: Next.js 11
-- **Styling**: Tailwind CSS 2
-- **SEO**: next-seo
-- **Theme**: next-themes
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-- Node.js 14.x or higher
-- Yarn or npm
-
-### Installation
+## Local development
 
 ```bash
-# Install dependencies
-yarn install
-
-# Run development server
-yarn dev
-
-# Build for production
-yarn build
-
-# Start production server
-yarn start
+pnpm install
+pnpm dev
 ```
 
-## 📁 Project Structure
+Open [http://localhost:3000](http://localhost:3000).
 
-```
-cryptocanuck.com/
-├── components/      # React components
-│   ├── Header.js   # Navigation with mega menu
-│   └── Footer.js   # Site footer
-├── pages/          # Next.js pages
-│   ├── index.js    # Homepage
-│   ├── music.js    # Music releases
-│   ├── shows.js    # Live shows
-│   ├── about.js    # Artist bio
-│   └── contact.js  # Contact & press kit
-├── styles/         # Global styles
-├── public/         # Static assets
-└── package.json    # Dependencies
-```
-
-## 🎨 Design System
-
-### Color Palette
-- Primary: Pink (#f81ce5) → Purple (#a855f7) → Indigo (#6366f1)
-- Background: Pure Black (#000000)
-- Text: White (#ffffff) / Gray variants
-
-### Typography
-- Headings: Bold, large scale
-- Body: Clean, readable
-
-## 📝 Available Scripts
-
-- `yarn dev` - Start development server on localhost:3000
-- `yarn build` - Create production build
-- `yarn start` - Start production server
-
-## 🤝 Development Workflow
-
-Changes are developed on short-lived branches and reviewed through pull requests:
-
-1. Create a feature branch from `main`.
-2. Make a focused change and validate it locally.
-3. Commit the update with a descriptive message.
-4. Push the branch and open a draft pull request.
-5. Merge after the relevant checks and review are complete.
-
-Run `yarn build` before requesting review to confirm the production build succeeds.
-
-## 🌐 Deployment
-
-The site is optimized for deployment on Vercel:
+## Validation
 
 ```bash
-vercel
+pnpm lint
+pnpm build
 ```
 
-Or any static hosting platform that supports Next.js.
+## Configuration
 
-## 📄 License
+The application has production-safe defaults in `src/config.ts`. To override
+them, copy `.env.example` to `.env.local` and update the public variables.
 
-Copyright © 2025 CryptoCanuck. All rights reserved.
+## Project structure
 
-## 🔗 Links
+```text
+src/
+  app/          Page, visual system, metadata routes, and generated assets
+  components/   Shared site chrome
+  config.ts     Site identity and canonical URL
+```
 
-- Website: [cryptocanuck.com](https://cryptocanuck.com)
-- Spotify: [open.spotify.com/artist/YOUR_ARTIST_ID](https://open.spotify.com/artist/YOUR_ARTIST_ID)
-- SoundCloud: [soundcloud.com/cryptocanuck](https://soundcloud.com/cryptocanuck)
-- Instagram: [@cryptocanuck](https://instagram.com/cryptocanuck)
-- Twitter: [@cryptocanuck](https://twitter.com/cryptocanuck)
+## Credits
 
----
-
-🎧 **Made with passion for electronic music**
+The project retains the MIT license from the original SEO starter by Leo Wang.
+All portfolio design, copy, and system diagrams in this repository are original
+to this site.
