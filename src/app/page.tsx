@@ -187,7 +187,7 @@ export default function Home() {
                   {project.tags.map((tag) => <li key={tag}>{tag}</li>)}
                 </ul>
                 <a className="text-link" href={project.href} target={project.href.startsWith("http") ? "_blank" : undefined} rel={project.href.startsWith("http") ? "noreferrer" : undefined}>
-                  {project.linkLabel} <span aria-hidden="true">↗</span>
+                  {project.linkLabel} <span aria-hidden="true">{project.href.startsWith("http") ? "↗" : "↓"}</span>
                 </a>
               </div>
             </article>
